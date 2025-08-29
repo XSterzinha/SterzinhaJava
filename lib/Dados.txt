@@ -1,0 +1,34 @@
+1) Suponha que você esteja criando um app para anotar os pedidos
+dos clientes em um restaurante. Seu app precisa de uma lista de
+pedidos. Os garçons adicionam os pedidos a essa lista e os chefes os
+retiram da lista. Os garçons colocam os pedidos no final da lista e os
+chefes retiram os pedidos do começo dela para cozinhá-los.
+Você usaria um array ou uma lista encadeada para implementar o app?
+Justifique.
+
+R = Para este cenário, a estrutura de dados mais adequada é a lista encadeada, preferencialmente uma fila implementada com ponteiros para o início e o fim. Isso porque os pedidos são inseridos ao final da estrutura (enqueue) pelos garçons e removidos do início (dequeue) pelos chefes, caracterizando um comportamento FIFO (First-In, First-Out). Em uma lista encadeada, tanto inserções no final quanto remoções no início podem ser realizadas em tempo constante O(1), desde que os ponteiros estejam corretamente mantidos. Já uma estrutura baseada em arrays implicaria em um custo O(n) para remoções no início, devido ao deslocamento de todos os elementos subsequentes, o que a torna ineficiente para esse tipo de operação.
+
+
+
+2) Imagine que o Instagram guarda uma lista de usuários. Quando
+alguém tenta acessá-lo, uma busca é feita pelo nome de usuário. Se o
+nome da pessoas está na lista, ela pode continuar o acesso. As
+pessoas usam o Instagram com muita frequência, então existem muitas
+buscas nessa lista.
+
+Presuma que o Instagram use um algoritmo de busca que requer
+acesso aleatório, sendo que é necessário ser capaz de acessar o meio
+da lista de nomes instantaneamente. Sabendo disso, você
+implementaria essa lista usando um array ou uma lista encadeada?
+
+R = Neste caso, considerando que a aplicação realiza buscas frequentes por nome de usuário e que o algoritmo de busca requer acesso aleatório eficiente, a estrutura mais indicada é o array (vetor). Arrays proporcionam acesso direto a qualquer índice em tempo O(1), o que os torna ideais para algoritmos como busca binária, que exigem leitura constante do elemento central e subsequentes divisões da estrutura. Por outro lado, listas encadeadas não oferecem acesso aleatório, já que cada elemento é acessado sequencialmente, o que implica em um tempo de busca linear O(n), tornando-as inadequadas para esse tipo de operação intensiva.
+
+
+
+3) As pessoas se inscrevem no Instagram com muita frequência.
+Suponha que você decida usar um array para armazenar a lista de
+usuários. Quais as desvantagens de um array em relação às
+inserções? O que acontece quando você adiciona novos usuários em
+um array?
+
+R = A principal limitação do uso de arrays em contextos com inserções frequentes está no seu tamanho fixo. Quando a capacidade do array é atingida, é necessário realizar uma realocação, criando um novo array com tamanho maior (geralmente o dobro) e copiando todos os elementos do array original para o novo espaço, o que tem custo O(n). Além disso, inserções em posições intermediárias ou iniciais requerem o deslocamento de elementos subsequentes, resultando também em custo O(n). Apesar disso, estruturas como arrays dinâmicos (ex.: ArrayList em Java ou vector em C++) utilizam técnicas de alocação dinâmica com redimensionamento exponencial, o que permite manter o custo amortizado de inserção em O(1) na maioria dos casos, embora ainda exista o overhead nas realocações.
